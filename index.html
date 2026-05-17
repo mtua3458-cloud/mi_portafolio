@@ -113,11 +113,11 @@
             border-radius: 1px;
         }
 
-        /* Sección de Bienvenida (Elegante con contraste oscuro controlado) */
+        /* Sección de Bienvenida Imponente (Sin la imagen molesta) */
         .hero-section {
             background: radial-gradient(circle at center, #2d3540 0%, var(--gris-industrial) 100%);
             color: var(--blanco-puro);
-            padding: 65px 20px;
+            padding: 80px 20px; /* Un poco más de espacio para balancear la falta de imagen */
             text-align: center;
             position: relative;
         }
@@ -127,36 +127,28 @@
             margin: 0 auto;
         }
 
-        .hero-logo-placeholder {
-            margin-bottom: 20px;
-        }
-
-        .hero-logo-placeholder img {
-            max-height: 110px;
-            width: auto;
-        }
-
         .hero-section h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .hero-section .subtitle {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--rojo-neon);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .quote-box {
             background-color: rgba(255, 255, 255, 0.05);
             border-left: 4px solid var(--rojo-neon);
             padding: 15px 20px;
-            margin: 25px auto 0 auto;
+            margin: 30px auto 0 auto;
             max-width: 650px;
             border-radius: 0 6px 6px 0;
             text-align: left;
@@ -218,7 +210,7 @@
             margin-bottom: 30px;
         }
 
-        /* Rejillas Modernas en Fondo Blanco */
+        /* Rejillas Modernas */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -277,7 +269,7 @@
             letter-spacing: -0.5px;
         }
 
-        /* Formularios Claros */
+        /* Formularios */
         form {
             display: flex;
             flex-direction: column;
@@ -334,7 +326,7 @@
             box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3);
         }
 
-        /* Contacto e Interactividad */
+        /* Contacto */
         .contact-list {
             list-style: none;
             margin-top: 15px;
@@ -457,11 +449,11 @@
             }
 
             .hero-section {
-                padding: 45px 15px;
+                padding: 55px 15px;
             }
 
             .hero-section h1 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             .section-card {
@@ -479,7 +471,7 @@
     <header>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="imageslogo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+                <img src="imageslogo.png" id="navbar-logo" alt="Logo" class="logo-img" onerror="tryAlternativeLogos(this)">
                 <div class="logo-text">M.E. Consulting & Management</div>
             </div>
             <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
@@ -501,9 +493,6 @@
     <div id="inicio" class="section-content active">
         <section class="hero-section">
             <div class="hero-container">
-                <div class="hero-logo-placeholder">
-                    <img src="imageslogo.png" alt="Logotipo Oficial" onerror="this.style.display='none'">
-                </div>
                 <h1>M.E. CONSULTING & MANAGEMENT</h1>
                 <div class="subtitle">Estrategia | Ingeniería | Impacto</div>
                 
@@ -679,6 +668,18 @@
     </footer>
 
     <script>
+        function tryAlternativeLogos(imgElement) {
+            const alternatives = ['logo.png', 'imageslogo.jpg', 'imageslogo.jpeg', 'logo.jpg'];
+            if (!imgElement.dataset.attempt) imgElement.dataset.attempt = "0";
+            let currentAttempt = parseInt(imgElement.dataset.attempt);
+            if (currentAttempt < alternatives.length) {
+                imgElement.src = alternatives[currentAttempt];
+                imgElement.dataset.attempt = (currentAttempt + 1).toString();
+            } else {
+                imgElement.style.display = 'none';
+            }
+        }
+
         function navigateTo(sectionId) {
             const sections = document.querySelectorAll('.section-content');
             sections.forEach(section => section.classList.remove('active'));
@@ -699,7 +700,7 @@
 
         document.getElementById('mobile-menu').addEventListener('click', function() {
             const navList = document.getElementById('nav-list');
-            navList.classList.toggle('show');
+            navList.toggle('show');
         });
     </script>
 </body>
