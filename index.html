@@ -101,6 +101,7 @@
             cursor: pointer;
             background: none;
             border: none;
+            outline: none;
         }
 
         .menu-toggle span {
@@ -422,7 +423,7 @@
     <header>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+                <img src="imageslogo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
                 <div class="logo-text">M.E. Consulting & Management</div>
             </div>
             <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
@@ -445,7 +446,7 @@
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-logo-placeholder">
-                    <img src="logo.png" alt="Logotipo M.E. Consulting & Management" onerror="this.style.display='none'">
+                    <img src="imageslogo.png" alt="Logotipo M.E. Consulting & Management" onerror="this.style.display='none'">
                 </div>
                 <h1>Bienvenida</h1>
                 <p>Le damos la bienvenida a <strong>M.E. Consulting & Management LLC</strong>. Nos especializamos en ofrecer soluciones integrales de consultoría estratégica y gestión profesional de proyectos, asegurando los más altos estándares de calidad y eficiencia para su negocio.</p>
@@ -601,7 +602,7 @@
 
         document.getElementById('mobile-menu').addEventListener('click', function() {
             const navList = document.getElementById('nav-list');
-            navList.toggle('show');
+            navList.classList.toggle('show');
         });
     </script>
 </body>
