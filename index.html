@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M.E. Consulting & Management</title>
     <style>
-        /* Paleta de Colores Inspirada en el Pitch Deck (Estilo Dark Tech) */
+        /* Nueva Paleta: Light Tech (Equilibrio de Luz con Acentos Corporativos) */
         :root {
-            --fondo-oscuro: #0c1117;     /* Fondo profundo de las láminas */
-            --tarjeta-oscura: #161b22;    /* Gris contenedor de los gráficos */
-            --rojo-neon: #ff0033;         /* Líneas de acento e iluminación */
-            --texto-claro: #f0f6fc;       /* Blanco de alta visibilidad para lectura */
-            --texto-gris: #8b949e;        /* Gris para descripciones secundarias */
-            --borde-sutil: #30363d;       /* Líneas de rejilla técnica */
+            --fondo-claro: #f8fafc;       /* Fondo principal limpio y luminoso */
+            --blanco-puro: #ffffff;       /* Fondo de las tarjetas para dar claridad */
+            --gris-industrial: #1e242c;   /* Gris oscuro de ingeniería para cabeceras */
+            --rojo-neon: #ff0033;         /* Color de acento vivo para guiar la mirada */
+            --texto-principal: #0f172a;   /* Negro/Gris profundo para lectura impecable */
+            --texto-secundario: #475569;  /* Gris medio para descripciones */
+            --borde-tecnico: #e2e8f0;     /* Líneas finas de rejilla */
         }
 
         * {
@@ -23,19 +24,19 @@
         }
 
         body {
-            background-color: var(--fondo-oscuro);
-            color: var(--texto-claro);
+            background-color: var(--fondo-claro);
+            color: var(--texto-principal);
             line-height: 1.6;
         }
 
         /* Barra de Navegación */
         header {
-            background-color: rgba(22, 27, 34, 0.95);
+            background-color: var(--gris-industrial);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--borde-sutil);
-            backdrop-filter: blur(8px);
+            border-bottom: 2px solid rgba(255, 0, 51, 0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .nav-container {
@@ -63,7 +64,7 @@
         .logo-text {
             font-weight: 700;
             font-size: 1.25rem;
-            color: var(--texto-claro);
+            color: var(--blanco-puro);
             letter-spacing: 0.5px;
             white-space: nowrap;
             overflow: hidden;
@@ -78,7 +79,7 @@
         }
 
         nav ul li a {
-            color: var(--texto-gris);
+            color: #94a3b8;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -89,8 +90,8 @@
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: var(--texto-claro);
-            background-color: var(--tarjeta-oscura);
+            color: var(--blanco-puro);
+            background-color: rgba(255, 255, 255, 0.05);
             border-bottom: 2px solid var(--rojo-neon);
         }
 
@@ -108,28 +109,17 @@
         .menu-toggle span {
             width: 22px;
             height: 2px;
-            background-color: var(--texto-claro);
+            background-color: var(--blanco-puro);
             border-radius: 1px;
         }
 
-        /* Sección de Bienvenida (Estilo Hero con Línea Roja Superior) */
+        /* Sección de Bienvenida (Elegante con contraste oscuro controlado) */
         .hero-section {
-            background: radial-gradient(circle at center, #1f242c 0%, var(--fondo-oscuro) 100%);
-            padding: 70px 20px;
+            background: radial-gradient(circle at center, #2d3540 0%, var(--gris-industrial) 100%);
+            color: var(--blanco-puro);
+            padding: 65px 20px;
             text-align: center;
-            border-bottom: 1px solid var(--borde-sutil);
             position: relative;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--rojo-neon);
-            box-shadow: 0 0 12px var(--rojo-neon);
         }
 
         .hero-container {
@@ -147,11 +137,10 @@
         }
 
         .hero-section h1 {
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             letter-spacing: 1px;
-            color: var(--texto-claro);
         }
 
         .hero-section .subtitle {
@@ -164,12 +153,12 @@
         }
 
         .quote-box {
-            background-color: rgba(22, 27, 34, 0.6);
+            background-color: rgba(255, 255, 255, 0.05);
             border-left: 4px solid var(--rojo-neon);
             padding: 15px 20px;
             margin: 25px auto 0 auto;
             max-width: 650px;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 6px 6px 0;
             text-align: left;
         }
 
@@ -177,10 +166,10 @@
             font-size: 1.1rem;
             font-style: italic;
             font-weight: 600;
-            color: var(--texto-claro);
+            color: var(--blanco-puro);
         }
 
-        /* Contenedores Principales */
+        /* Contenedores Principales Claros */
         main {
             max-width: 1200px;
             margin: 40px auto;
@@ -198,15 +187,16 @@
         }
 
         .section-card {
-            background: var(--tarjeta-oscura);
+            background: var(--blanco-puro);
             padding: 40px;
             border-radius: 8px;
-            border: 1px solid var(--borde-sutil);
+            border: 1px solid var(--borde-tecnico);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
 
         h2 {
-            color: var(--texto-claro);
-            font-size: 1.9rem;
+            color: var(--texto-principal);
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
             display: inline-block;
@@ -220,16 +210,15 @@
             height: 3px;
             background-color: var(--rojo-neon);
             margin-top: 8px;
-            box-shadow: 0 0 6px var(--rojo-neon);
         }
 
         .section-intro {
             font-size: 1.05rem;
-            color: var(--texto-gris);
+            color: var(--texto-secundario);
             margin-bottom: 30px;
         }
 
-        /* Rejillas Modernas */
+        /* Rejillas Modernas en Fondo Blanco */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -237,8 +226,8 @@
         }
 
         .card {
-            background: rgba(12, 17, 23, 0.7);
-            border: 1px solid var(--borde-sutil);
+            background: var(--fondo-claro);
+            border: 1px solid var(--borde-tecnico);
             padding: 25px;
             border-radius: 6px;
             transition: all 0.3s ease;
@@ -246,8 +235,9 @@
 
         .card:hover {
             border-color: var(--rojo-neon);
+            background: var(--blanco-puro);
             transform: translateY(-3px);
-            box-shadow: 0 4px 20px rgba(255, 0, 51, 0.1);
+            box-shadow: 0 10px 25px rgba(255, 0, 51, 0.06);
         }
 
         .card-icon {
@@ -257,7 +247,7 @@
         }
 
         .card h3 {
-            color: var(--texto-claro);
+            color: var(--texto-principal);
             font-size: 1.25rem;
             margin-bottom: 10px;
             font-weight: 600;
@@ -265,24 +255,29 @@
 
         .card p {
             font-size: 0.95rem;
-            color: var(--texto-gris);
+            color: var(--texto-secundario);
         }
 
         /* Tarjetas de Indicadores Métricos */
         .metric-card {
             text-align: center;
-            border-top: 3px solid var(--rojo-neon);
+            background: var(--blanco-puro);
+            border-top: 4px solid var(--gris-industrial);
+        }
+
+        .metric-card:hover {
+            border-top-color: var(--rojo-neon);
         }
 
         .metric-number {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 800;
-            color: var(--texto-claro);
+            color: var(--texto-principal);
             margin-bottom: 5px;
             letter-spacing: -0.5px;
         }
 
-        /* Estilos de Formularios de Alta Gama (Oscuros) */
+        /* Formularios Claros */
         form {
             display: flex;
             flex-direction: column;
@@ -298,31 +293,32 @@
         .form-group label {
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--texto-claro);
+            color: var(--texto-principal);
         }
 
         input, select, textarea {
             width: 100%;
             padding: 11px 14px;
-            border: 1px solid var(--borde-sutil);
+            border: 1px solid var(--borde-tecnico);
             border-radius: 4px;
             font-size: 0.95rem;
-            background-color: var(--fondo-oscuro);
-            color: var(--texto-claro);
+            background-color: var(--fondo-claro);
+            color: var(--texto-principal);
             transition: all 0.3s;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--rojo-neon);
-            box-shadow: 0 0 0 2px rgba(255, 0, 51, 0.2);
+            background-color: var(--blanco-puro);
+            box-shadow: 0 0 0 3px rgba(255, 0, 51, 0.08);
         }
 
         button[type="submit"] {
-            background-color: var(--tarjeta-oscura);
-            color: var(--texto-claro);
-            border: 1px solid var(--rojo-neon);
-            padding: 12px;
+            background-color: var(--gris-industrial);
+            color: var(--blanco-puro);
+            border: none;
+            padding: 13px;
             border-radius: 4px;
             font-weight: 700;
             font-size: 1rem;
@@ -335,10 +331,10 @@
 
         button[type="submit"]:hover {
             background-color: var(--rojo-neon);
-            box-shadow: 0 0 10px var(--rojo-neon);
+            box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3);
         }
 
-        /* Lista de Contactos e Interactividad */
+        /* Contacto e Interactividad */
         .contact-list {
             list-style: none;
             margin-top: 15px;
@@ -353,30 +349,30 @@
         }
 
         .email-link {
-            color: var(--texto-claro);
+            color: var(--texto-principal);
             text-decoration: none;
             font-weight: 600;
-            border-bottom: 1px dashed var(--rojo-neon);
+            border-bottom: 2px solid var(--rojo-neon);
             transition: all 0.3s ease;
         }
 
         .email-link:hover {
             color: var(--rojo-neon);
-            border-bottom: 1px solid var(--rojo-neon);
+            background-color: rgba(255, 0, 51, 0.04);
         }
 
         /* Redes Sociales */
         .social-media-container {
             margin-top: 25px;
             padding-top: 20px;
-            border-top: 1px solid var(--borde-sutil);
+            border-top: 1px solid var(--borde-tecnico);
             text-align: center;
         }
 
         .social-media-title {
             font-weight: 600;
             font-size: 1rem;
-            color: var(--texto-claro);
+            color: var(--texto-principal);
             margin-bottom: 12px;
         }
 
@@ -392,8 +388,8 @@
             justify-content: center;
             width: 44px;
             height: 44px;
-            background-color: var(--fondo-oscuro);
-            border: 1px solid var(--borde-sutil);
+            background-color: var(--blanco-puro);
+            border: 1px solid var(--borde-tecnico);
             border-radius: 50%;
             transition: all 0.3s ease;
         }
@@ -401,24 +397,24 @@
         .social-link:hover {
             border-color: var(--rojo-neon);
             transform: scale(1.08);
+            background-color: var(--fondo-claro);
         }
 
         .social-link img {
             width: 20px;
             height: 20px;
             object-fit: contain;
-            filter: invert(1); /* Pone los íconos de redes sociales en blanco */
         }
 
         /* Pie de Página */
         footer {
-            background-color: var(--tarjeta-oscura);
-            color: var(--texto-gris);
+            background-color: var(--gris-industrial);
+            color: #94a3b8;
             text-align: center;
             padding: 25px 20px;
             margin-top: 50px;
             font-size: 0.9rem;
-            border-top: 1px solid var(--borde-sutil);
+            border-top: 3px solid var(--rojo-neon);
         }
 
         @keyframes fadeIn {
@@ -443,11 +439,11 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--tarjeta-oscura);
+                background-color: var(--gris-industrial);
                 padding: 15px;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
                 gap: 5px;
-                border-top: 1px solid var(--borde-sutil);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             nav ul.show {
@@ -465,7 +461,7 @@
             }
 
             .hero-section h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
 
             .section-card {
@@ -473,7 +469,7 @@
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -511,7 +507,7 @@
                 <h1>M.E. CONSULTING & MANAGEMENT</h1>
                 <div class="subtitle">Estrategia | Ingeniería | Impacto</div>
                 
-                <p style="font-size: 1.15rem; color: var(--texto-claro); max-width: 750px; margin: 0 auto;">
+                <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 750px; margin: 0 auto;">
                     Transformando la complejidad técnica en rentabilidad operativa y social mediante análisis estratégico y metodologías globales PMI.
                 </p>
 
@@ -523,8 +519,8 @@
         
         <main>
             <div class="section-card" style="max-width: 900px; margin: 0 auto;">
-                <h3 style="color: var(--texto-claro); font-size: 1.3rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Propuesta de Valor</h3>
-                <p style="font-size: 1.05rem; color: var(--texto-gris); margin-bottom: 30px;">
+                <h3 style="color: var(--texto-principal); font-size: 1.3rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Propuesta de Valor</h3>
+                <p style="font-size: 1.05rem; color: var(--texto-secundario); margin-bottom: 30px;">
                     Convertimos datos dispersos en decisiones ejecutivas que optimizan recursos, reducen costos y generan valor sostenible para su organización. Identificamos y cerramos la brecha crítica entre la ejecución técnica y la excelencia gerencial en el sector industrial.
                 </p>
 
@@ -583,24 +579,24 @@
                 
                 <div class="grid-container" style="margin-bottom: 40px;">
                     <div class="card metric-card">
-                        <div class="metric-number">30%</div>
+                        <div class="metric-number" style="color: var(--rojo-neon);">30%</div>
                         <h3>Ahorro en Operaciones</h3>
                         <p>Reducción de costos operativos mediante optimización de procesos de mantenimiento industrial y gestión eficiente.</p>
                     </div>
                     <div class="card metric-card">
-                        <div class="metric-number">100%</div>
+                        <div class="metric-number" style="color: var(--rojo-neon);">100%</div>
                         <h3>Trazabilidad de Datos</h3>
                         <p>Control total de información crítica a través de auditoría en sistemas ERP, garantizando decisiones basadas en datos.</p>
                     </div>
                     <div class="card metric-card">
-                        <div class="metric-number">x10</div>
+                        <div class="metric-number" style="color: var(--rojo-neon);">x10</div>
                         <h3>Impacto Comunitario</h3>
                         <p>Multiplicación del alcance social mediante programas de formación técnica especializada y empoderamiento sectorial.</p>
                     </div>
                 </div>
 
-                <h3 style="color: var(--texto-claro); font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase;">Iniciativas Destacadas</h3>
-                <div class="card" style="background: rgba(12, 17, 23, 0.5);">
+                <h3 style="color: var(--texto-principal); font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase;">Iniciativas Destacadas</h3>
+                <div class="card" style="background: var(--blanco-puro);">
                     <h4>Ecosistema de Software Atlas</h4>
                     <p style="margin-top: 5px;">Desarrollo técnico de una solución en Python para la administración de proyectos y aseguramiento de la calidad, adaptado estrictamente a las necesidades operativas modernas y a los requerimientos de la gerencia.</p>
                 </div>
@@ -613,7 +609,7 @@
                 <p class="section-intro">Estamos listos para transformar su operación industrial con estrategia, innovación y compromiso sostenible.</p>
                 
                 <div class="grid-container">
-                    <div class="card" style="background: rgba(12, 17, 23, 0.5);">
+                    <div class="card" style="background: var(--blanco-puro);">
                         <h3 style="margin-bottom: 15px; font-size: 1.15rem;">Formulario Oficial de Consulta</h3>
                         
                         <form action="https://formspree.io/f/tu-correo@email.com" method="POST">
@@ -644,10 +640,10 @@
                         </form>
                     </div>
 
-                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; background: var(--blanco-puro);">
                         <div>
                             <h3 style="margin-bottom: 15px; font-size: 1.15rem;">Canales Directos</h3>
-                            <p style="font-size: 0.95rem; color: var(--texto-gris);">Haga clic sobre cualquiera de las credenciales para iniciar una comunicación interactiva:</p>
+                            <p style="font-size: 0.95rem; color: var(--texto-secundario);">Haga clic sobre cualquiera de las credenciales para iniciar una comunicación interactiva:</p>
                             
                             <ul class="contact-list">
                                 <li>📌 <strong>Dirección:</strong> Lara, Venezuela</li>
@@ -668,7 +664,7 @@
                             </div>
                         </div>
 
-                        <div style="margin-top: 15px; border-top: 1px solid var(--borde-sutil); padding-top: 12px; font-size: 0.85rem; color: var(--texto-gris); text-align: center;">
+                        <div style="margin-top: 15px; border-top: 1px solid var(--borde-tecnico); padding-top: 12px; font-size: 0.85rem; color: var(--texto-secundario); text-align: center;">
                             <p><strong>Firma:</strong> Ing. María Eugenia Túa | Dirección Técnica</p>
                         </div>
                     </div>
