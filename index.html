@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M.E. Consulting & Management</title>
     <style>
-        /* Nueva Paleta: Light Tech (Equilibrio de Luz con Acentos Corporativos) */
+        /* Paleta de Colores Industrial de Alta Gama */
         :root {
             --fondo-claro: #f8fafc;       /* Fondo principal limpio y luminoso */
             --blanco-puro: #ffffff;       /* Fondo de las tarjetas para dar claridad */
-            --gris-industrial: #1e242c;   /* Gris oscuro de ingeniería para cabeceras y nav */
-            --gris-bienvenida: #e2e8f0;   /* Gris claro técnico para romper la transición */
+            --negro-nav: #0f1319;         /* Negro puro satinado para despegar la barra */
+            --gris-industrial: #1e242c;   /* El gris oscuro original que te encantaba */
             --rojo-neon: #ff0033;         /* Color de acento vivo para guiar la mirada */
             --texto-principal: #0f172a;   /* Negro/Gris profundo para lectura impecable */
             --texto-secundario: #475569;  /* Gris medio para descripciones */
@@ -30,14 +30,14 @@
             line-height: 1.6;
         }
 
-        /* Barra de Navegación (Se mantiene oscura y sofisticada) */
+        /* Barra de Navegación (Ahora más oscura para marcar la transición) */
         header {
-            background-color: var(--gris-industrial);
+            background-color: var(--negro-nav);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--rojo-neon);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 2px solid rgba(255, 0, 51, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .nav-container {
@@ -114,14 +114,13 @@
             border-radius: 1px;
         }
 
-        /* Sección de Bienvenida Ajustada: Gris más claro para contrastar con la barra */
+        /* Sección de Bienvenida (Volvimos al Gris Oscuro Elegante) */
         .hero-section {
-            background: linear-gradient(135deg, #f1f5f9 0%, var(--gris-bienvenida) 100%);
-            color: var(--texto-principal); /* Texto oscuro para legibilidad perfecta */
+            background: radial-gradient(circle at center, #2d3540 0%, var(--gris-industrial) 100%);
+            color: var(--blanco-puro);
             padding: 80px 20px;
             text-align: center;
             position: relative;
-            border-bottom: 1px solid var(--borde-tecnico);
         }
 
         .hero-container {
@@ -135,35 +134,34 @@
             margin-bottom: 15px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--texto-principal);
+            color: var(--blanco-puro);
         }
 
         .hero-section .subtitle {
             font-size: 1rem;
-            color: var(--rojo-neon); /* Resalta hermoso sobre el fondo claro */
+            color: var(--rojo-neon);
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 700;
             margin-bottom: 30px;
         }
 
-        /* Cuadro de la frase adaptado al nuevo fondo */
+        /* Cuadro de la frase original */
         .quote-box {
-            background-color: var(--blanco-puro);
+            background-color: rgba(255, 255, 255, 0.05);
             border-left: 4px solid var(--rojo-neon);
             padding: 15px 20px;
             margin: 30px auto 0 auto;
             max-width: 650px;
             border-radius: 0 6px 6px 0;
             text-align: left;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
 
         .quote-box p {
             font-size: 1.1rem;
             font-style: italic;
             font-weight: 600;
-            color: var(--texto-principal);
+            color: var(--blanco-puro);
         }
 
         /* Contenedores Principales Claros */
@@ -215,10 +213,10 @@
             margin-bottom: 30px;
         }
 
-        /* Rejillas Modernas de 4 Columnas */
+        /* Rejillas Modernas: ¡FORZADO 4 COLUMNAS EN PC! */
         .grid-container-four {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(4, 1fr); /* 4 perfectos alineados en línea */
             gap: 20px;
             margin-top: 25px;
         }
@@ -426,8 +424,18 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Adaptación a Teléfonos */
+        /* Adaptación Responsiva */
+        @media (max-width: 992px) {
+            .grid-container-four {
+                grid-template-columns: repeat(2, 1fr); /* 2 y 2 en pantallas medianas */
+            }
+        }
+
         @media (max-width: 768px) {
+            .grid-container-four {
+                grid-template-columns: 1fr; /* 1 solo por fila impecable en celulares */
+            }
+
             .logo-text {
                 font-size: 1.1rem;
             }
@@ -508,7 +516,7 @@
                 <h1>M.E. CONSULTING & MANAGEMENT</h1>
                 <div class="subtitle">Estrategia | Ingeniería | Impacto</div>
                 
-                <p style="font-size: 1.15rem; color: var(--texto-secundario); max-width: 750px; margin: 0 auto; font-weight: 500;">
+                <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 750px; margin: 0 auto;">
                     Transformando la complejidad técnica en rentabilidad operativa y social mediante análisis estratégico y metodologías globales PMI.
                 </p>
 
@@ -519,8 +527,8 @@
         </section>
         
         <main>
-            <div class="section-card" style="max-width: 1100px; margin: 0 auto;">
-                <div style="text-align: center; max-width: 800px; margin: 0 auto 35px auto;">
+            <div class="section-card" style="max-width: 1200px; margin: 0 auto;">
+                <div style="text-align: center; max-width: 850px; margin: 0 auto 35px auto;">
                     <h3 style="color: var(--texto-principal); font-size: 1.4rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Propuesta Central</h3>
                     <p style="font-size: 1.05rem; color: var(--texto-secundario); line-height: 1.7;">
                         Convertimos datos dispersos en decisiones ejecutivas que optimizan recursos, reducen costos y generan valor sostenible para su organización. Identificamos y cerramos la brecha crítica entre la ejecución técnica y la excelencia gerencial en el sector industrial.
