@@ -295,6 +295,19 @@
             gap: 10px;
         }
 
+        /* Estilo para los correos interactivos */
+        .email-link {
+            color: var(--azul-claro);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: var(--azul-primario);
+            text-decoration: underline;
+        }
+
         /* Estilos para las Redes Sociales */
         .social-media-container {
             margin-top: 30px;
@@ -550,8 +563,8 @@
                             <p style="margin-top: 10px;">Establezca comunicación institucional directa a través de nuestras credenciales oficiales:</p>
                             
                             <ul class="contact-list">
-                                <li>🔹 <strong>Gerencia:</strong> gerencia@me-consulting-gmt.com</li>
-                                <li>🔹 <strong>Servicios:</strong> servicio@me-consulting-gmt.com</li>
+                                <li>🔹 <strong>Gerencia:</strong> <a href="mailto:gerencia@me-consulting-gmt.com" class="email-link">gerencia@me-consulting-gmt.com</a></li>
+                                <li>🔹 <strong>Servicios:</strong> <a href="mailto:servicio@me-consulting-gmt.com" class="email-link">servicio@me-consulting-gmt.com</a></li>
                             </ul>
                         </div>
                         
