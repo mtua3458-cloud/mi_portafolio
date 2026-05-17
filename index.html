@@ -3,167 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.E. Consulting & Management</title>
+    <title>M.E. Consulting & Management LLC</title>
     <style>
-        /* Estilos Generales */
+        /* Paleta de colores corporativa y estilos base */
+        :root {
+            --azul-oscuro: #003366;
+            --azul-claro: #0066cc;
+            --gris-fondo: #f4f6f9;
+            --texto-oscuro: #333333;
+            --blanco: #ffffff;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: var(--gris-fondo);
+            color: var(--texto-oscuro);
             line-height: 1.6;
         }
 
-        /* Barra de Navegación Azul */
-        .navbar {
-            background-color: #003366; /* Azul Corporativo */
-            color: white;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* Barra de Navegación Responsiva */
+        header {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        .navbar .logo {
-            font-size: 1.4rem;
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
             font-weight: bold;
-            letter-spacing: 1px;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 70%;
         }
-        .navbar ul {
+
+        /* Menú para Computadora */
+        nav ul {
             display: flex;
             list-style: none;
+            gap: 20px;
         }
-        .navbar ul li {
-            margin-left: 20px;
-        }
-        .navbar ul li a {
-            color: white;
+
+        nav ul li a {
+            color: var(--blanco);
             text-decoration: none;
-            font-size: 1rem;
             font-weight: 500;
-            transition: color 0.3s;
-        }
-        .navbar ul li a:hover {
-            color: #bdc3c7;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+            cursor: pointer;
         }
 
-        /* Contenedor Principal */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--azul-claro);
+        }
+
+        /* Botón de menú para Teléfono (Oculto en PC) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--blanco);
+            border-radius: 2px;
+        }
+
+        /* Contenedor Principal de Contenido */
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
             padding: 0 20px;
+            min-height: 70vh;
         }
 
-        /* Secciones */
-        .section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
+        /* Lógica de Secciones (Ocultas por defecto) */
+        .section-content {
+            display: none;
+            background: var(--blanco);
+            padding: 40px 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            scroll-margin-top: 80px;
-        }
-        h2 {
-            color: #003366;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #003366;
-            padding-bottom: 5px;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 20px;
-            font-style: italic;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s ease;
         }
 
-        ul.skills-list, ol.services-list {
-            padding-left: 20px;
+        /* Clase para mostrar la sección activa */
+        .section-content.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--azul-oscuro);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--azul-claro);
+            padding-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        p {
             margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #555;
         }
-        ul.skills-list li, ol.services-list li {
+
+        /* Estilos específicos para las cuadrículas */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: #f9fbfd;
+            border-left: 4px solid var(--azul-claro);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .card h3 {
+            color: var(--azul-oscuro);
             margin-bottom: 10px;
-        }
-        strong {
-            color: #003366;
         }
 
         /* Pie de página */
         footer {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
             text-align: center;
             padding: 20px;
-            margin-top: 50px;
-            color: #777;
+            margin-top: 40px;
             font-size: 0.9rem;
-            border-top: 1px solid #ddd;
+        }
+
+        /* Animación suave al cambiar de pestaña */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===================================================
+           DISEÑO RESPONSIVO (Para Teléfonos Celulares)
+           =================================================== */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .menu-toggle {
+                display: flex; /* Muestra las 3 rayitas en el celular */
+            }
+
+            nav ul {
+                display: none; /* Esconde el menú horizontal */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--azul-oscuro);
+                padding: 20px;
+                box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+                gap: 15px;
+            }
+
+            nav ul.show {
+                display: flex; /* Muestra el menú hacia abajo al tocar las rayitas */
+            }
+
+            nav ul li a {
+                display: block;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .section-content {
+                padding: 25px 15px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">M.E. Consulting & Management</div>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+    <header>
+        <div class="nav-container">
+            <div class="logo">M.E. Consulting & Management</div>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul id="nav-list">
+                    <li><a class="nav-link active" onclick="navigateTo('inicio')">Inicio</a></li>
+                    <li><a class="nav-link" onclick="navigateTo('servicios')">Servicios</a></li>
+                    <li><a class="nav-link" onclick="navigateTo('proyectos')">Proyectos</a></li>
+                    <li><a class="nav-link" onclick="navigateTo('contacto')">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="container">
-
-        <section id="inicio" class="section">
-            <h2>Bienvenidos</h2>
-            <p class="subtitle">Servicios de Consultoría en Ingeniería de Mantenimiento & Dirección de Proyectos</p>
-            <p>Somos una firma especializada en la optimización de procesos operativos, gestión estratégica de activos industriales y la dirección técnica de proyectos bajo los más altos estándares globales (PMI).</p>
+    <main>
+        
+        <section id="inicio" class="section-content active">
+            <h2>Bienvenida</h2>
+            <p>Le damos la bienvenida a <strong>M.E. Consulting & Management LLC</strong>. Nos especializamos en ofrecer soluciones integrales de consultoría estratégica y gestión profesional de proyectos, asegurando los más altos estándares de calidad y eficiencia para su negocio.</p>
+            <p>Nuestro compromiso es transformar sus objetivos en resultados medibles y sostenibles a lo largo del tiempo.</p>
         </section>
 
-        <section id="servicios" class="section">
-            <h2>Nuestras Soluciones y Especialidades</h2>
-            <ul class="skills-list">
-                <li><strong>Dirección de Proyectos (Project Management):</strong> Planificación, control de costos, gestión de riesgos y ejecución estructurada de proyectos industriales y de construcción.</li>
-                <li><strong>Ingeniería de Mantenimiento Industrial:</strong> Diseño e implementación de planes de mantenimiento preventivo, predictivo y correctivo para la optimización de activos corporativos.</li>
-                <li><strong>Auditoría y Optimización ERP:</strong> Evaluación técnica de flujos de trabajo, configuración y auditoría avanzada en sistemas Odoo ERP y entornos SAP.</li>
-                <li><strong>Modelado y Planificación Técnico:</strong> Soporte en diseño, control y seguimiento mediante herramientas de vanguardia como MS Project, Notion, AutoCAD y entornos BIM con Revit.</li>
-            </ul>
-
-            <h2>Líneas de Servicio</h2>
-            <ol class="services-list">
-                <li><strong>Consultoría Estratégica:</strong> Estructuración robusta de proyectos desde su fase inicial hasta el cierre definitivo.</li>
-                <li><strong>Auditorías Operativas:</strong> Diagnóstico y corrección de flujos en sistemas de gestión para elevar la eficiencia del negocio.</li>
-                <li><strong>Gestión de Activos:</strong> Soluciones de ingeniería orientadas a maximizar la vida útil y confiabilidad de la maquinaria e infraestructura industrial.</li>
-            </ol>
+        <section id="servicios" class="section-content">
+            <h2>Nuestros Servicios</h2>
+            <p>Ofrecemos un portafolio diseñado para optimizar los procesos de ingeniería, mantenimiento y dirección estratégica:</p>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Gestión de Proyectos (PMI)</h3>
+                    <p>Planificación, ejecución y control riguroso de proyectos bajo lineamientos globales del PMBOK.</p>
+                </div>
+                <div class="card">
+                    <h3>Consultoría en Sistemas ERP</h3>
+                    <p>Auditoría de flujos técnicos y optimización de procesos en plataformas como Odoo y módulos SAP.</p>
+                </div>
+                <div class="card">
+                    <h3>Ingeniería de Mantenimiento</h3>
+                    <p>Diseño e implementación de planes de mantenimiento mecánico industrial y gestión de activos.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="proyectos" class="section">
+        <section id="proyectos" class="section-content">
             <h2>Proyectos</h2>
-            <p>Desarrollo y ejecución de sistemas y metodologías avanzadas de gestión para garantizar el éxito y la sostenibilidad de cada asignación técnica:</p>
-            <ul class="skills-list" style="margin-top: 15px;">
-                <li><strong>Estructuración de Sistemas de Gestión de Proyectos:</strong> Diseño de metodologías personalizadas alineadas con los estándares globales del PMI (Project Management Institute).</li>
-                <li><strong>Auditorías Técnicas de Procesos:</strong> Evaluación integral de flujos de mantenimiento y operaciones en entornos industriales.</li>
-            </ul>
+            <p>Conozca las iniciativas y soluciones de vanguardia que hemos desarrollado con éxito:</p>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Sistema Atlas</h3>
+                    <p>Desarrollo de un ecosistema inteligente en Python enfocado en la gestión de proyectos y control de calidad bajo estándares PMI.</p>
+                </div>
+                <div class="card">
+                    <h3>Consultoría de Procesos</h3>
+                    <p>Auditorías técnicas especializadas y reestructuración de flujos operativos para medianas y grandes empresas.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="contacto" class="section">
-            <h2>Contacto Profesional</h2>
-            <p>Para evaluar colaboraciones estratégicas o solicitar una auditoría técnica para su organización, puede interactuar con nuestros canales oficiales:</p>
-            <p style="margin-top: 15px; font-size: 1.1rem;">
-                🌐 <strong>Sitio Web:</strong> <a href="http://www.me-consulting-gmt.com" style="color: #003366; text-decoration: none; font-weight: bold;">www.me-consulting-gmt.com</a>
-            </p>
+        <section id="contacto" class="section-content">
+            <h2>Contacto</h2>
+            <p>¿Tiene un proyecto en mente o necesita asesoría experta? Envíenos sus datos y nos pondremos en contacto a la brevedad.</p>
+            
+            <div class="grid-container" style="margin-top: 20px;">
+                <div class="card" style="border-left: 4px solid var(--azul-oscuro); background: #ffffff;">
+                    <h3 style="margin-bottom: 15px;">Formulario de Consulta</h3>
+                    
+                    <form action="https://formspree.io/f/tu-correo@email.com" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem;">Nombre Completo:</label>
+                            <input type="text" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem;">Correo Electrónico:</label>
+                            <input type="email" name="_replyto" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem;">¿A qué área va dirigida su consulta?</label>
+                            <select name="department" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; background: #fff;">
+                                <option value="Gerencia">Gerencia (gerencia@me-consulting-gmt.com)</option>
+                                <option value="Servicios">Servicios (servicio@me-consulting-gmt.com)</option>
+                                <option value="Consultoria General">Consultoría General (contactconsulting@me-consulting-gmt.com)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem;">Mensaje o Consulta:</label>
+                            <textarea name="message" rows="4" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" style="background-color: var(--azul-claro); color: white; border: none; padding: 12px; border-radius: 4px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background 0.3s;">
+                            Enviar Consulta
+                        </button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Canales de Comunicación Digital</h3>
+                    <p style="font-size: 0.95rem; margin-top: 10px;">Si lo prefiere, puede escribirnos directamente a nuestras direcciones oficiales:</p>
+                    <ul style="list-style: none; margin-top: 15px; line-height: 2; font-size: 0.95rem;">
+                        <li>• <strong>Gerencia:</strong> gerencia@me-consulting-gmt.com</li>
+                        <li>• <strong>Servicios:</strong> servicio@me-consulting-gmt.com</li>
+                        <li>• <strong>Consultoría General:</strong> contactconsulting@me-consulting-gmt.com</li>
+                    </ul>
+                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+                    <p><strong>📍 Ubicación:</strong> Barquisimeto - Cabudare, Estado Lara, Venezuela.</p>
+                    <p><strong>💼 Marca Comercial:</strong> M.E. Consulting & Management LLC</p>
+                </div>
+            </div>
         </section>
 
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2026 M.E. Consulting & Management. Todos los derechos reservados.</p>
+        <p>&copy; 2026 M.E. Consulting & Management LLC. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        // Función para cambiar de sección de manera limpia
+        function navigateTo(sectionId) {
+            // 1. Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // 2. Desmarcar todos los botones del menú
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+
+            // 3. Mostrar la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // 4. Marcar como activo el botón presionado
+            const clickedLink = Array.from(links).find(link => link.getAttribute('onclick').includes(sectionId));
+            if (clickedLink) clickedLink.classList.add('active');
+
+            // 5. En celulares, cerrar el menú desplegable automáticamente después de hacer clic
+            const navList = document.getElementById('nav-list');
+            navList.classList.remove('show');
+        }
+
+        // Lógica para abrir y cerrar el menú móvil (las 3 rayitas)
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
