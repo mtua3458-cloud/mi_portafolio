@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.E. Consulting & Management LLC</title>
+    <title>M.E. Consulting & Management</title>
     <style>
-        /* Paleta de colores corporativa y estilos base */
+        /* Paleta de Colores Inspirada en el Pitch Deck (Estilo Dark Tech) */
         :root {
-            --azul-primario: #002244; /* Azul oscuro profundo de ingeniería */
-            --azul-claro: #0055b3;
-            --azul-acento: #0077e6;
-            --gris-fondo: #f8fafc;
-            --texto-oscuro: #1e293b;
-            --blanco: #ffffff;
+            --fondo-oscuro: #0c1117;     /* Fondo profundo de las láminas */
+            --tarjeta-oscura: #161b22;    /* Gris contenedor de los gráficos */
+            --rojo-neon: #ff0033;         /* Líneas de acento e iluminación */
+            --texto-claro: #f0f6fc;       /* Blanco de alta visibilidad para lectura */
+            --texto-gris: #8b949e;        /* Gris para descripciones secundarias */
+            --borde-sutil: #30363d;       /* Líneas de rejilla técnica */
         }
 
         * {
@@ -23,18 +23,19 @@
         }
 
         body {
-            background-color: var(--gris-fondo);
-            color: var(--texto-oscuro);
-            line-height: 1.7;
+            background-color: var(--fondo-oscuro);
+            color: var(--texto-claro);
+            line-height: 1.6;
         }
 
-        /* Barra de Navegación Profesional */
+        /* Barra de Navegación */
         header {
-            background-color: var(--blanco);
+            background-color: rgba(22, 27, 34, 0.95);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border-bottom: 2px solid var(--borde-sutil);
+            backdrop-filter: blur(8px);
         }
 
         .nav-container {
@@ -43,10 +44,9 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 20px;
+            padding: 12px 20px;
         }
 
-        /* Espacio para el Logo Integrado */
         .logo-container {
             display: flex;
             align-items: center;
@@ -55,45 +55,46 @@
         }
 
         .logo-img {
-            height: 40px;
+            height: 38px;
             width: auto;
             object-fit: contain;
         }
 
         .logo-text {
             font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--azul-primario);
-            letter-spacing: -0.5px;
+            font-size: 1.25rem;
+            color: var(--texto-claro);
+            letter-spacing: 0.5px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        /* Menú de navegación en PC */
+        /* Menú en PC */
         nav ul {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 10px;
         }
 
         nav ul li a {
-            color: #475569;
+            color: var(--texto-gris);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.05rem;
-            padding: 10px 16px;
-            border-radius: 6px;
+            font-size: 0.95rem;
+            padding: 8px 14px;
+            border-radius: 4px;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         nav ul li a:hover, nav ul li a.active {
-            color: var(--azul-claro);
-            background-color: #f1f5f9;
+            color: var(--texto-claro);
+            background-color: var(--tarjeta-oscura);
+            border-bottom: 2px solid var(--rojo-neon);
         }
 
-        /* Botón de menú para Celular */
+        /* Botón hamburguesa para celular */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -105,62 +106,91 @@
         }
 
         .menu-toggle span {
-            width: 24px;
-            height: 3px;
-            background-color: var(--azul-primario);
-            border-radius: 2px;
+            width: 22px;
+            height: 2px;
+            background-color: var(--texto-claro);
+            border-radius: 1px;
         }
 
-        /* Sección de bienvenida "Hero" Imponente */
+        /* Sección de Bienvenida (Estilo Hero con Línea Roja Superior) */
         .hero-section {
-            background: linear-gradient(135deg, var(--azul-primario) 0%, #003366 100%);
-            color: var(--blanco);
-            padding: 80px 20px;
+            background: radial-gradient(circle at center, #1f242c 0%, var(--fondo-oscuro) 100%);
+            padding: 70px 20px;
             text-align: center;
-            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--borde-sutil);
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--rojo-neon);
+            box-shadow: 0 0 12px var(--rojo-neon);
         }
 
         .hero-container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .hero-logo-placeholder {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .hero-logo-placeholder img {
-            max-height: 120px;
+            max-height: 110px;
             width: auto;
         }
 
         .hero-section h1 {
-            font-size: 2.8rem;
+            font-size: 2.3rem;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            color: var(--texto-claro);
         }
 
-        .hero-section p {
-            font-size: 1.3rem;
-            color: #cbd5e1;
-            max-width: 750px;
-            margin: 0 auto;
+        .hero-section .subtitle {
+            font-size: 0.95rem;
+            color: var(--rojo-neon);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 25px;
         }
 
-        /* Contenedor Principal de Contenido */
+        .quote-box {
+            background-color: rgba(22, 27, 34, 0.6);
+            border-left: 4px solid var(--rojo-neon);
+            padding: 15px 20px;
+            margin: 25px auto 0 auto;
+            max-width: 650px;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+
+        .quote-box p {
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--texto-claro);
+        }
+
+        /* Contenedores Principales */
         main {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
-            min-height: 50vh;
+            min-height: 45vh;
         }
 
-        /* Estructura de las pestañas */
         .section-content {
             display: none;
-            animation: fadeIn 0.4s ease-out;
+            animation: fadeIn 0.35s ease-out;
         }
 
         .section-content.active {
@@ -168,71 +198,95 @@
         }
 
         .section-card {
-            background: var(--blanco);
-            padding: 45px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            background: var(--tarjeta-oscura);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--borde-sutil);
         }
 
         h2 {
-            color: var(--azul-primario);
-            font-size: 2.2rem;
+            color: var(--texto-claro);
+            font-size: 1.9rem;
             font-weight: 700;
-            margin-bottom: 25px;
-            border-bottom: 4px solid var(--azul-claro);
-            padding-bottom: 12px;
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--rojo-neon);
+            margin-top: 8px;
+            box-shadow: 0 0 6px var(--rojo-neon);
         }
 
         .section-intro {
-            font-size: 1.2rem;
-            color: #475569;
+            font-size: 1.05rem;
+            color: var(--texto-gris);
             margin-bottom: 30px;
         }
 
-        /* Cuadrículas de Tarjetas (Servicios y Proyectos) */
+        /* Rejillas Modernas */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-top: 5px solid var(--azul-claro);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(12, 17, 23, 0.7);
+            border: 1px solid var(--borde-sutil);
+            padding: 25px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            border-color: var(--rojo-neon);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(255, 0, 51, 0.1);
         }
 
         .card-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 15px;
             display: inline-block;
         }
 
         .card h3 {
-            color: var(--azul-primario);
-            font-size: 1.4rem;
-            margin-bottom: 12px;
+            color: var(--texto-claro);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .card p {
-            font-size: 1.05rem;
-            color: #64748b;
+            font-size: 0.95rem;
+            color: var(--texto-gris);
         }
 
-        /* Estilos del Formulario Avanzado */
+        /* Tarjetas de Indicadores Métricos */
+        .metric-card {
+            text-align: center;
+            border-top: 3px solid var(--rojo-neon);
+        }
+
+        .metric-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--texto-claro);
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Estilos de Formularios de Alta Gama (Oscuros) */
         form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
         }
 
         .form-group {
@@ -243,142 +297,139 @@
 
         .form-group label {
             font-weight: 600;
-            font-size: 1rem;
-            color: var(--azul-primario);
+            font-size: 0.9rem;
+            color: var(--texto-claro);
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 1.05rem;
-            background-color: #f8fafc;
+            padding: 11px 14px;
+            border: 1px solid var(--borde-sutil);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            background-color: var(--fondo-oscuro);
+            color: var(--texto-claro);
             transition: all 0.3s;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: var(--azul-claro);
-            background-color: var(--blanco);
-            box-shadow: 0 0 0 3px rgba(0,85,179,0.15);
+            border-color: var(--rojo-neon);
+            box-shadow: 0 0 0 2px rgba(255, 0, 51, 0.2);
         }
 
         button[type="submit"] {
-            background-color: var(--azul-claro);
-            color: var(--blanco);
-            border: none;
-            padding: 14px;
-            border-radius: 6px;
+            background-color: var(--tarjeta-oscura);
+            color: var(--texto-claro);
+            border: 1px solid var(--rojo-neon);
+            padding: 12px;
+            border-radius: 4px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 10px;
+            transition: all 0.3s;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         button[type="submit"]:hover {
-            background-color: var(--azul-primario);
+            background-color: var(--rojo-neon);
+            box-shadow: 0 0 10px var(--rojo-neon);
         }
 
-        /* Canales Oficiales en Contacto */
+        /* Lista de Contactos e Interactividad */
         .contact-list {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .contact-list li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: baseline;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* Estilo para los correos interactivos */
         .email-link {
-            color: var(--azul-claro);
+            color: var(--texto-claro);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            border-bottom: 1px dashed var(--rojo-neon);
+            transition: all 0.3s ease;
         }
 
         .email-link:hover {
-            color: var(--azul-primario);
-            text-decoration: underline;
+            color: var(--rojo-neon);
+            border-bottom: 1px solid var(--rojo-neon);
         }
 
-        /* Estilos para las Redes Sociales */
+        /* Redes Sociales */
         .social-media-container {
-            margin-top: 30px;
+            margin-top: 25px;
             padding-top: 20px;
-            border-top: 1px solid #cbd5e1;
+            border-top: 1px solid var(--borde-sutil);
             text-align: center;
         }
 
         .social-media-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--azul-primario);
-            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--texto-claro);
+            margin-bottom: 12px;
         }
 
         .social-icons-wrapper {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            background-color: #f1f5f9;
+            width: 44px;
+            height: 44px;
+            background-color: var(--fondo-oscuro);
+            border: 1px solid var(--borde-sutil);
             border-radius: 50%;
             transition: all 0.3s ease;
-            text-decoration: none;
         }
 
         .social-link:hover {
-            background-color: var(--azul-claro);
-            transform: scale(1.1);
+            border-color: var(--rojo-neon);
+            transform: scale(1.08);
         }
 
         .social-link img {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             object-fit: contain;
-            transition: filter 0.3s ease;
+            filter: invert(1); /* Pone los íconos de redes sociales en blanco */
         }
 
-        .social-link:hover img {
-            filter: brightness(0) invert(1);
-        }
-
-        /* Pie de página */
+        /* Pie de Página */
         footer {
-            background-color: var(--azul-primario);
-            color: #94a3b8;
+            background-color: var(--tarjeta-oscura);
+            color: var(--texto-gris);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-            font-size: 1rem;
-            border-top: 3px solid var(--azul-claro);
+            padding: 25px 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--borde-sutil);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===================================================
-           DISEÑO RESPONSIVO OPTIMIZADO (Para Celulares)
-           =================================================== */
+        /* Adaptación a Teléfonos */
         @media (max-width: 768px) {
             .logo-text {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
             }
 
             .menu-toggle {
@@ -392,11 +443,11 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--blanco);
-                padding: 20px;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                gap: 10px;
-                border-top: 1px solid #f1f5f9;
+                background-color: var(--tarjeta-oscura);
+                padding: 15px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+                gap: 5px;
+                border-top: 1px solid var(--borde-sutil);
             }
 
             nav ul.show {
@@ -406,27 +457,23 @@
             nav ul li a {
                 display: block;
                 text-align: center;
-                padding: 14px;
+                padding: 12px;
             }
 
             .hero-section {
-                padding: 50px 15px;
+                padding: 45px 15px;
             }
 
             .hero-section h1 {
-                font-size: 2rem;
-            }
-
-            .hero-section p {
-                font-size: 1.1rem;
+                font-size: 1.7rem;
             }
 
             .section-card {
-                padding: 30px 20px;
+                padding: 25px 15px;
             }
 
             h2 {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -459,16 +506,45 @@
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-logo-placeholder">
-                    <img src="imageslogo.png" alt="Logotipo M.E. Consulting & Management" onerror="this.style.display='none'">
+                    <img src="imageslogo.png" alt="Logotipo Oficial" onerror="this.style.display='none'">
                 </div>
-                <h1>Bienvenida</h1>
-                <p>Le damos la bienvenida a <strong>M.E. Consulting & Management LLC</strong>. Nos especializamos en ofrecer soluciones integrales de consultoría estratégica y gestión profesional de proyectos, asegurando los más altos estándares de calidad y eficiencia para su negocio.</p>
+                <h1>M.E. CONSULTING & MANAGEMENT</h1>
+                <div class="subtitle">Estrategia | Ingeniería | Impacto</div>
+                
+                <p style="font-size: 1.15rem; color: var(--texto-claro); max-width: 750px; margin: 0 auto;">
+                    Transformando la complejidad técnica en rentabilidad operativa y social mediante análisis estratégico y metodologías globales PMI.
+                </p>
+
+                <div class="quote-box">
+                    <p>"No solo analizo datos, los convierto en decisiones".</p>
+                </div>
             </div>
         </section>
         
         <main>
-            <div class="section-card" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <p style="font-size: 1.2rem; color: #475569;">Nuestro compromiso es transformar sus objetivos industriales, técnicos y corporativos en resultados medibles y altamente sostenibles a lo largo del tiempo, apalancándonos en metodologías globales de vanguardia.</p>
+            <div class="section-card" style="max-width: 900px; margin: 0 auto;">
+                <h3 style="color: var(--texto-claro); font-size: 1.3rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Propuesta de Valor</h3>
+                <p style="font-size: 1.05rem; color: var(--texto-gris); margin-bottom: 30px;">
+                    Convertimos datos dispersos en decisiones ejecutivas que optimizan recursos, reducen costos y generan valor sostenible para su organización. Identificamos y cerramos la brecha crítica entre la ejecución técnica y la excelencia gerencial en el sector industrial.
+                </p>
+
+                <div class="grid-container">
+                    <div class="card">
+                        <span class="card-icon" style="color: var(--rojo-neon);">⚙️</span>
+                        <h3>Ingeniería de Precisión</h3>
+                        <p>Mantenimiento mecánico industrial, diseño CAD/BIM y supervisión técnica enfocada en optimizar el rendimiento de activos críticos.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-icon" style="color: var(--rojo-neon);">📊</span>
+                        <h3>Gestión de Impacto Social</h3>
+                        <p>Formación técnica especializada y empoderamiento de comunidades, impulsando el desarrollo del talento local con impacto real.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-icon" style="color: var(--rojo-neon);">🌱</span>
+                        <h3>Sostenibilidad Ambiental</h3>
+                        <p>Consultoría experta en Huella de Carbono y el diseño de estrategias corporativas de cara a un futuro industrial responsable.</p>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -477,24 +553,24 @@
         
         <section id="servicios" class="section-content">
             <div class="section-card">
-                <h2>Nuestros Servicios</h2>
-                <p class="section-intro">Ofrecemos un portafolio de alta ingeniería diseñado exclusivamente para optimizar los procesos técnicos, el mantenimiento y la dirección estratégica institucional:</p>
+                <h2>Servicios Consultores</h2>
+                <p class="section-intro">Pilares de acción estratégicos para mitigar ineficiencias y estandarizar la gestión industrial:</p>
                 
                 <div class="grid-container">
                     <div class="card">
-                        <span class="card-icon">📊</span>
-                        <h3>Gestión de Proyectos (PMI)</h3>
-                        <p>Planificación, ejecución y control riguroso de proyectos complejos bajo los exigentes lineamientos globales del estándar PMBOK.</p>
+                        <span class="card-icon">🎯</span>
+                        <h3>Gestión Profesional PMI</h3>
+                        <p>Planificación, control presupuestario y dirección estratégica bajo los lineamientos globales de estandarización PMI.</p>
                     </div>
                     <div class="card">
-                        <span class="card-icon">⚙️</span>
-                        <h3>Consultoría en Sistemas ERP</h3>
-                        <p>Auditoría experta de flujos técnicos, reestructuración y optimización de procesos en plataformas líderes del mercado.</p>
+                        <span class="card-icon">💻</span>
+                        <h3>Auditoría de Sistemas ERP</h3>
+                        <p>Auditoría sistémica de flujos de información en Odoo / SAP para asegurar que los datos reflejen con exactitud la realidad operativa de la planta.</p>
                     </div>
                     <div class="card">
-                        <span class="card-icon">🛠️</span>
+                        <span class="card-icon">🔧</span>
                         <h3>Ingeniería de Mantenimiento</h3>
-                        <p>Diseño, desarrollo e implementación de planes estratégicos de mantenimiento mecánico industrial y gestión eficiente de activos.</p>
+                        <p>Análisis de datos operativos, planes de mantenimiento industrial y diseño técnico avanzado para mitigar riesgos en activos de planta.</p>
                     </div>
                 </div>
             </div>
@@ -502,20 +578,31 @@
 
         <section id="proyectos" class="section-content">
             <div class="section-card">
-                <h2>Proyectos Desarrollados</h2>
-                <p class="section-intro">Conozca las iniciativas de software y las soluciones de ingeniería de vanguardia que hemos estructurado con éxito:</p>
+                <h2>Indicadores & Casos</h2>
+                <p class="section-intro">Eficiencia técnica proyectada mediante la estandarización de procesos, digitalización y rigor metodológico:</p>
                 
-                <div class="grid-container">
-                    <div class="card">
-                        <span class="card-icon">💻</span>
-                        <h3>Sistema Atlas</h3>
-                        <p>Desarrollo e ingeniería de un ecosistema inteligente basado en Python, enfocado en la administración de proyectos y control estricto de calidad bajo estándares del PMI.</p>
+                <div class="grid-container" style="margin-bottom: 40px;">
+                    <div class="card metric-card">
+                        <div class="metric-number">30%</div>
+                        <h3>Ahorro en Operaciones</h3>
+                        <p>Reducción de costos operativos mediante optimización de procesos de mantenimiento industrial y gestión eficiente.</p>
                     </div>
-                    <div class="card">
-                        <span class="card-icon">🔍</span>
-                        <h3>Consultoría de Procesos</h3>
-                        <p>Auditorías técnicas integrales y reingeniería de flujos operativos críticos orientados a maximizar la rentabilidad de medianas y grandes empresas.</p>
+                    <div class="card metric-card">
+                        <div class="metric-number">100%</div>
+                        <h3>Trazabilidad de Datos</h3>
+                        <p>Control total de información crítica a través de auditoría en sistemas ERP, garantizando decisiones basadas en datos.</p>
                     </div>
+                    <div class="card metric-card">
+                        <div class="metric-number">x10</div>
+                        <h3>Impacto Comunitario</h3>
+                        <p>Multiplicación del alcance social mediante programas de formación técnica especializada y empoderamiento sectorial.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--texto-claro); font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase;">Iniciativas Destacadas</h3>
+                <div class="card" style="background: rgba(12, 17, 23, 0.5);">
+                    <h4>Ecosistema de Software Atlas</h4>
+                    <p style="margin-top: 5px;">Desarrollo técnico de una solución en Python para la administración de proyectos y aseguramiento de la calidad, adaptado estrictamente a las necesidades operativas modernas y a los requerimientos de la gerencia.</p>
                 </div>
             </div>
         </section>
@@ -523,65 +610,66 @@
         <section id="contacto" class="section-content">
             <div class="section-card">
                 <h2>Contacto Corporativo</h2>
-                <p class="section-intro">¿Tiene un proyecto industrial en mente o requiere una evaluación experta? Envíenos sus datos de manera directa.</p>
+                <p class="section-intro">Estamos listos para transformar su operación industrial con estrategia, innovación y compromiso sostenible.</p>
                 
                 <div class="grid-container">
-                    <div class="card" style="border-top: 5px solid var(--azul-primario); background: #ffffff;">
-                        <h3 style="margin-bottom: 20px;">Formulario de Consulta Directa</h3>
+                    <div class="card" style="background: rgba(12, 17, 23, 0.5);">
+                        <h3 style="margin-bottom: 15px; font-size: 1.15rem;">Formulario Oficial de Consulta</h3>
                         
                         <form action="https://formspree.io/f/tu-correo@email.com" method="POST">
                             <div class="form-group">
-                                <label>Nombre Completo / Empresa:</label>
+                                <label>Nombre o Razón Social:</label>
                                 <input type="text" name="name" required>
                             </div>
 
                             <div class="form-group">
-                                <label>Correo Electrónico de Contacto:</label>
+                                <label>Correo Institucional:</label>
                                 <input type="email" name="_replyto" required>
                             </div>
 
                             <div class="form-group">
-                                <label>¿A qué área va dirigida su solicitud?</label>
+                                <label>Departamento Destino:</label>
                                 <select name="department" required>
-                                    <option value="Gerencia">Gerencia (gerencia@me-consulting-gmt.com)</option>
-                                    <option value="Servicios">Servicios (servicio@me-consulting-gmt.com)</option>
+                                    <option value="Gerencia">Gerencia Técnica (gerencia@me-consulting-gmt.com)</option>
+                                    <option value="Servicios">Servicios e Ingeniería (servicio@me-consulting-gmt.com)</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Descripción del Requerimiento o Consulta:</label>
-                                <textarea name="message" rows="5" required></textarea>
+                                <label>Descripción del Requerimiento:</label>
+                                <textarea name="message" rows="4" required></textarea>
                             </div>
 
-                            <button type="submit">Enviar Consulta Oficial</button>
+                            <button type="submit">Enviar Solicitud</button>
                         </form>
                     </div>
 
-                    <div class="card" style="background-color: #f8fafc; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <h3>Canales de Comunicación</h3>
-                            <p style="margin-top: 10px;">Establezca comunicación institucional directa a través de nuestras credenciales oficiales:</p>
+                            <h3 style="margin-bottom: 15px; font-size: 1.15rem;">Canales Directos</h3>
+                            <p style="font-size: 0.95rem; color: var(--texto-gris);">Haga clic sobre cualquiera de las credenciales para iniciar una comunicación interactiva:</p>
                             
                             <ul class="contact-list">
-                                <li>🔹 <strong>Gerencia:</strong> <a href="mailto:gerencia@me-consulting-gmt.com" class="email-link">gerencia@me-consulting-gmt.com</a></li>
-                                <li>🔹 <strong>Servicios:</strong> <a href="mailto:servicio@me-consulting-gmt.com" class="email-link">servicio@me-consulting-gmt.com</a></li>
+                                <li>📌 <strong>Dirección:</strong> Lara, Venezuela</li>
+                                <li>✉️ <strong>Gerencia:</strong> <a href="mailto:gerencia@me-consulting-gmt.com" class="email-link">gerencia@me-consulting-gmt.com</a></li>
+                                <li>✉️ <strong>Servicios:</strong> <a href="mailto:servicio@me-consulting-gmt.com" class="email-link">servicio@me-consulting-gmt.com</a></li>
                             </ul>
                         </div>
                         
                         <div class="social-media-container">
-                            <div class="social-media-title">Conéctese con Nosotros</div>
+                            <div class="social-media-title">Conecte en Redes</div>
                             <div class="social-icons-wrapper">
-                                <a href="#" target="_blank" class="social-link" title="Instagram">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-                                </a>
                                 <a href="#" target="_blank" class="social-link" title="LinkedIn">
                                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                                </a>
+                                <a href="#" target="_blank" class="social-link" title="Instagram">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
                                 </a>
                             </div>
                         </div>
 
-                        <div style="margin-top: 20px; border-top: 1px solid #cbd5e1; padding-top: 15px; font-size: 0.95rem; color: #475569; text-align: center;">
-                            <p><strong>💼 Entidad Comercial:</strong> M.E. Consulting & Management LLC</p>
+                        <div style="margin-top: 15px; border-top: 1px solid var(--borde-sutil); padding-top: 12px; font-size: 0.85rem; color: var(--texto-gris); text-align: center;">
+                            <p><strong>Firma:</strong> Ing. María Eugenia Túa | Dirección Técnica</p>
                         </div>
                     </div>
                 </div>
@@ -591,7 +679,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 M.E. Consulting & Management LLC. Todos los derechos reservados.</p>
+        <p>&copy; 2026 M.E. Consulting & Management. Eficacia en la ingeniería, excelencia en la gestión e impacto real.</p>
     </footer>
 
     <script>
